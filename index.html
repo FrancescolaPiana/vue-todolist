@@ -5,6 +5,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Vue To Do List</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@100;300;500&display=swap" rel="stylesheet">
 
     <!-- fontawesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -17,6 +21,34 @@
 </head>
 <body>
     
+    <div id="app" class="container">
+        <div id="logo" class="row">
+            <div class="col d-flex flex-column">
+                <img class="img-fluid dsi align-self-center" src="./img/logo.PNG" alt="logo">
+            </div>
+        </div>
+        <div id="input" class="row">
+            <div class="col  d-flex gap-2 gx-0" >
+                <input v-model="newTodo" class="input d-inline-block " type="text" id="todoinput" name="todo" placeholder="Insert Task">
+                <button @click="addTodo" class="btn d-inline-block " type="submit"><i class="fa-solid fa-plus"></i></button>
+            </div>
+        </div>
+
+        <div id="list" class="row">
+            <div id="borderlists" class="col d-flex flex-column ">
+                <ul>
+                    <li v-for="(todo,index) in dProcess" :key="index" class="list d-flex justify-content-between">
+                        <span class="text1">{{dProcess[index].text}}</span>
+                        <div class="btncc">
+                            <span class="cross"><i class="fa-solid fa-xmark"></i></span>
+                        </div>
+                    </li>
+                    
+                </ul>
+            </div>
+        </div>
+
+    </div>
 
     <script src="./js/script.js"></script>
 </body>
