@@ -14,7 +14,7 @@ const dProcess = [
     {
         text:'sketch the first drawing',
         done: false,
-    }
+    },
 ]
 
 console.log(dProcess);
@@ -40,6 +40,16 @@ const app = createApp({
             console.log(obj);
             console.log(dProcess);
             this.newTodo = ''
+        },
+
+        deleteTodo(index){
+            console.log(index);
+            // dProcess[index].done = true
+            // document.querySelector('.list').remove()
+
+            console.log(dProcess[2]);
+            dProcess[2].done = true
+            console.log(dProcess[2]);
         }
     },
 
