@@ -26,11 +26,13 @@ const app = createApp({
     data(){
         return {
             dProcess,
+            newTodo:''
         }
     },
 
     methods: {
         addTodo(){
+            if (this.newTodo.length > 0 ) {
             let texn = this.newTodo
             let obj = Object();
             obj.text = texn;
@@ -40,16 +42,17 @@ const app = createApp({
             console.log(obj);
             console.log(dProcess);
             this.newTodo = ''
+            }
+            else{
+
+            }
+
         },
 
         deleteTodo(index){
             console.log(index);
-            // dProcess[index].done = true
-            // document.querySelector('.list').remove()
-
-            console.log(dProcess[2]);
-            dProcess[2].done = true
-            console.log(dProcess[2]);
+            this.dProcess.splice(index, 1)
+            console.log(dProcess);
         }
     },
 

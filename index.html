@@ -29,7 +29,7 @@
         </div>
         <div id="input" class="row">
             <div class="col  d-flex gap-2 gx-0" >
-                <input v-model="newTodo" class="input d-inline-block " type="text" id="todoinput" name="todo" placeholder="Insert Task">
+                <input @keyup.enter="addTodo" v-model="newTodo" class="input d-inline-block " type="text" id="todoinput" name="todo" placeholder="Insert Task">
                 <button @click="addTodo" class="btn d-inline-block " type="submit"><i class="fa-solid fa-plus"></i></button>
             </div>
         </div>
@@ -37,9 +37,9 @@
         <div id="list" class="row">
             <div id="borderlists" class="col d-flex flex-column ">
                 <ul>
-                    <li v-for="(todo,index) in dProcess" :key="index" :class="dProcess[index].done === true ? 'd-none' : ''" class="list d-flex justify-content-between">
+                    <li v-for="(todo,index) in dProcess" :key="index" class="list d-flex justify-content-between">
                         <span class="text1">{{dProcess[index].text}}</span>
-                        <div @click="deleteTodo" class="btncc">
+                        <div @click="deleteTodo(index)" class="btncc">
                             <span class="cross"><i class="fa-solid fa-xmark"></i></span>
                         </div>
                     </li>
